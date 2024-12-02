@@ -36,7 +36,6 @@ const App = () => {
       // Show success toast
       toast.success('Login Success', { toastId: 'loginSuccess' });
       setIsLoggedIn(true)
-      toast.success('Login Success', { toastId: 'loginSuccess' });
 
     } catch (error) {
       console.error('Authentication failed:', error);
