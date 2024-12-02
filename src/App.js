@@ -34,11 +34,13 @@ const App = () => {
       console.log("tokeennn", res.data.token)
 
       // Show success toast
-      toast.success('Login successful! Welcome to the app!');
+      toast.success('Login Success', { toastId: 'loginSuccess' });
       setIsLoggedIn(true)
+      toast.success('Login Success', { toastId: 'loginSuccess' });
+
     } catch (error) {
       console.error('Authentication failed:', error);
-      toast.error('Login failed. Please try again.');
+      toast.error('Login failed. Please try again.', { toastId: 'loginError' });
     }
   };
 

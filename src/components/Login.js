@@ -8,29 +8,29 @@ import {jwtDecode} from 'jwt-decode';
 import './Login.css'; // Import external CSS for styling
 
 const Login = ({onLoginSuccess}) => {
-  const handleSuccess = async (credentialResponse) => {
-    try {
-      // Decode JWT to get user data
-      const userData = jwtDecode(credentialResponse.credential);
-      const { sub: googleId, name, email } = userData;
+  // const handleSuccess = async (credentialResponse) => {
+  //   try {
+  //     // Decode JWT to get user data
+  //     const userData = jwtDecode(credentialResponse.credential);
+  //     const { sub: googleId, name, email } = userData;
 
-      // Send user data to the backend
-      const res = await API.post('/auth/google', { googleId, name, email });
+  //     // Send user data to the backend
+  //     const res = await API.post('/auth/google', { googleId, name, email });
 
-      // Save token to local storage
-      localStorage.setItem('token', res.data.token);
-      console.log("tokeennn", res.data.token)
+  //     // Save token to local storage
+  //     localStorage.setItem('token', res.data.token);
+  //     console.log("tokeennn", res.data.token)
 
-      // Show success toast
-      toast.success('Login successful! Welcome to the app!');
-    } catch (error) {
-      console.error('Authentication failed:', error);
-      toast.error('Login failed. Please try again.');
-    }
-  };
+  //     // Show success toast
+  //     toast.success('Login successful! Welcome to the app!');
+  //   } catch (error) {
+  //     console.error('Authentication failed:', error);
+  //     toast.error('Login failed. Please try again.');
+  //   }
+  // };
 
   const handleFailure = () => {
-    toast.error('Google login failed. Please try again.');
+    toast.error('Google login failed. Please try again.', { toastId: 'googleError' });
   };
 
   return (
